@@ -1,0 +1,14 @@
+machine:
+  node:
+    version: 4.4.0
+
+dependencies:
+  post:
+    - npm run compile
+    - npm run compile-dev
+
+test:
+  override:
+    - echo "TODO"
+  post:
+    - npm run vile
