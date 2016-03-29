@@ -43,7 +43,7 @@ let into_stat_issue = (filepath, filedata) => {
 
   if (loc) {
     issue.stat.loc = loc.source
-    issue.stat.lines = loc.physical
+    issue.stat.lines = loc.total
     issue.stat.comment = loc.comment
   }
 
