@@ -1,6 +1,6 @@
 {
   "name": "@forthright/vile-stat",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "A vile plugin for tracking file statistics",
   "main": "lib/index.js",
   "files": [
