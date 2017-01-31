@@ -14,12 +14,19 @@ let ext_from_lang_map = (lang) =>
 let filepath_ext = (filepath, lang) =>
   path.extname(filepath) ||
     ext_from_lang_map(lang) ||
-      "NO_EXT"
+      "?"
 
 let into_stat_issue = (filepath, filedata) => {
   let loc
   let file_stat = fs.statSync(filepath)
-  let lang = detect.sync(filepath)
+  let lang
+
+  // HACK: prevents weird bug when file path ex does not exist
+  if (/\.[^\.]+$/.test(filepath)) {
+    lang = detect.sync(filepath)
+  } else {
+    lang = ""
+  }
 
   // HACK: language-detect reports .ts as XML
   if (/\.ts$/.test(filepath)) lang = "TypeScript"
