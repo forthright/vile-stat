@@ -21,11 +21,14 @@ let into_stat_issue = (filepath, filedata) => {
   let file_stat = fs.statSync(filepath)
   let lang
 
-  // HACK: prevents weird bug when file path ex does not exist
-  if (/\.[^\.]+$/.test(filepath)) {
-    lang = detect.sync(filepath)
-  } else {
-    lang = ""
+  // TODO: prevents weird bug when dot file or empty extension
+  try {
+    lang = detect.sync(filepath);
+  } catch(err) {
+    if (!/path must be a string/i
+        .test(_.get(err, "message"))) {
+      throw err
+    }
   }
 
   // HACK: language-detect reports .ts as XML
