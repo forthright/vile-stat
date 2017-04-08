@@ -1,4 +1,4 @@
-# vile-stat [![Circle CI](https://circleci.com/gh/forthright/vile-stat.svg?style=svg&circle-token=4f88501f4048011c21e7c0fd561f82c5651cfd9b)](https://circleci.com/gh/forthright/vile-stat)
+# vile-stat [![Circle CI](https://circleci.com/gh/forthright/vile-stat.svg?style=shield&circle-token=4f88501f4048011c21e7c0fd561f82c5651cfd9b)](https://circleci.com/gh/forthright/vile-stat)
 
 [![score-badge](https://vile.io/api/v0/projects/vile-stat/badges/score?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-stat) [![security-badge](https://vile.io/api/v0/projects/vile-stat/badges/security?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-stat) [![coverage-badge](https://vile.io/api/v0/projects/vile-stat/badges/coverage?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-stat) [![dependency-badge](https://vile.io/api/v0/projects/vile-stat/badges/dependency?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-stat)
 
