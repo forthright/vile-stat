@@ -1,6 +1,6 @@
 {
   "name": "vile-stat",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "A vile plugin for tracking file statistics",
   "main": "lib/index.js",
   "files": [
