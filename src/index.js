@@ -5,7 +5,7 @@ let _ = require("lodash")
 let detect = require("language-detect")
 let language = require("language-map")
 let sloc = require("sloc")
-let vile = require("@forthright/vile")
+let vile = require("vile")
 let log = vile.logger.create("stat")
 
 let ext_from_lang_map = (lang) =>
