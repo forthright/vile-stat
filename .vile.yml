@@ -14,12 +14,14 @@ vile:
     - tags
     - .ctags
     - .git
+    - .gitattributes
     - circle.yml
     - .editorconfig
     - .eslintignore
     - .eslintrc
     - .gitignore
     - .npmrc
+    - .nyc_output
     - tags
     - tmp
     - tsconfig.json

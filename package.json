@@ -24,7 +24,7 @@
     "dev": "bin/dev",
     "test": "globstar -- _mocha \"test/spec/**/*.coffee\"",
     "test-cov": "nyc -r json -r lcov -r text -x test -x **/node_modules/** npm run -s test",
-    "vile": "vile a -u -n",
+    "vile": "vile a -unx src:lib",
     "release-it": "release-it"
   },
   "keywords": [
@@ -62,6 +62,7 @@
     "vile-coverage": "^0.2.15",
     "vile-depcheck": "^0.1.13",
     "vile-eclint": "^0.1.14",
+    "vile-escomplex": "^0.1.5",
     "vile-eslint": "^0.1.14",
     "vile-git": "^0.5.3",
     "vile-language": "^0.1.13",
