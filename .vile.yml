@@ -12,7 +12,6 @@ vile:
     - node_modules
     - lib
     - tags
-    - .test
     - .ctags
     - .git
     - circle.yml

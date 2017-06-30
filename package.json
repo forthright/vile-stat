@@ -19,11 +19,11 @@
     "url": "https://github.com/forthright/vile-stat.git"
   },
   "scripts": {
+    "clean": "rm -rf {.nyc_output,coverage,lib} && git checkout -- lib",
     "compile": "babel -d lib -m common src",
-    "compile-dev": "bin/compile-dev",
     "dev": "bin/dev",
-    "test": "bin/test",
-    "test-cov": "bin/test-cov",
+    "test": "globstar -- _mocha \"test/spec/**/*.coffee\"",
+    "test-cov": "nyc -r json -r lcov -r text -x test -x **/node_modules/** npm run -s test",
     "vile": "vile a -u -n",
     "release-it": "release-it"
   },
@@ -35,7 +35,6 @@
     "file"
   ],
   "dependencies": {
-    "bluebird": "^3.5.0",
     "language-detect": "^1.1.0",
     "language-map": "^1.2.0",
     "lodash": "^4.17.4",
@@ -47,10 +46,12 @@
     "chai": "^4.0.2",
     "chai-as-promised": "^7.0.0",
     "coffee-script": "^1.12.6",
+    "globstar": "^1.0.0",
     "istanbul": "^0.4.5",
     "mimus": "^0.2.6",
     "mocha": "^3.4.2",
     "npm-check-updates": "^2.12.0",
+    "nyc": "^11.0.3",
     "release-it": "^2.8.0",
     "sinon": "^2.3.5",
     "sinon-chai": "^2.11.0",

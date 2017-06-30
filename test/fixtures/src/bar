@@ -1,0 +1,3 @@
+#! /usr/bin/env node
+// a js comment!
+var t = "a test js program";

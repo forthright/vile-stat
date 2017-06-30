@@ -1,41 +1,27 @@
-let fs = require("fs")
-let path = require("path")
-let Promise = require("bluebird")
-let _ = require("lodash")
-let detect = require("language-detect")
-let language = require("language-map")
-let sloc = require("sloc")
-let vile = require("vile")
-let log = vile.logger.create("stat")
+const fs = require("fs")
+const path = require("path")
+const _ = require("lodash")
+const detect = require("language-detect")
+const language = require("language-map")
+const sloc = require("sloc")
+const vile = require("vile")
+const log = vile.logger.create("stat")
 
-let ext_from_lang_map = (lang) =>
+const ext_from_lang_map = (lang) =>
   _.first(_.get(language[lang], "extensions"))
 
-let filepath_ext = (filepath, lang) =>
-  path.extname(filepath) ||
-    ext_from_lang_map(lang) ||
-      "?"
+const filepath_ext = (filepath, lang) =>
+  _.toString(path.extname(filepath) || ext_from_lang_map(lang))
 
-let into_stat_issue = (filepath, filedata) => {
+const into_stat_issue = (filepath, filedata) => {
   let loc
-  let file_stat = fs.statSync(filepath)
-  let lang
-
-  // TODO: prevents weird bug when dot file or empty extension
-  try {
-    lang = detect.sync(filepath);
-  } catch(err) {
-    if (!/path must be a string/i
-        .test(_.get(err, "message"))) {
-      throw err
-    }
-  }
+  let lang = detect.contents(filepath, filedata)
 
   // HACK: language-detect reports .ts as XML
-  if (/\.ts$/.test(filepath)) lang = "TypeScript"
+  if (/\.ts$/.test(filepath)) { lang = "TypeScript" }
 
   try {
-    let ext = filepath_ext(filepath, lang)
+    const ext = filepath_ext(filepath, lang)
     loc = sloc(filedata, ext.replace(/^\./, ""))
   } catch(error) {
     if (!error.toString().match(/not supported/i)) {
@@ -45,31 +31,36 @@ let into_stat_issue = (filepath, filedata) => {
     }
   }
 
-  let issue = vile.issue({
+  const file_stat = fs.statSync(filepath)
+
+  const issue = vile.issue({
     type: vile.STAT,
     path: filepath,
-    stat: { size: file_stat.size }
+    stat: {
+      size: file_stat.size,
+      language: lang
+    }
   })
 
   if (loc) {
-    issue.stat.loc = loc.source
-    issue.stat.lines = loc.total
-    issue.stat.comment = loc.comment
+    issue.stat.loc = _.get(loc, "source")
+    issue.stat.lines = _.get(loc, "total")
+    issue.stat.comment = _.get(loc, "comment")
   }
 
   return issue
 }
 
-let allowed = (config) => {
-  let ignore_config = _.get(config, "ignore", [])
-  let allow_config = _.get(config, "allow", [])
+const allowed = (config) => {
+  const ignore_config = _.get(config, "ignore", [])
+  const allow_config = _.get(config, "allow", [])
   return (file, is_dir) =>
     is_dir ||
       (vile.allowed(file, allow_config) &&
         !vile.ignored(file, ignore_config))
 }
 
-let punish = (config) =>
+const punish = (config) =>
   vile.promise_each(
     process.cwd(),
     allowed(config),

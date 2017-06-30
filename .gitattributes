@@ -1,2 +1,5 @@
+bin/* linguist-vendored
 lib/* linguist-vendored
 test/* linguist-vendored
+
+* text eol=lf

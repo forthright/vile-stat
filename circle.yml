@@ -10,10 +10,7 @@ checkout:
 dependencies:
   post:
     - npm run compile
-    - npm run compile-dev
 
 test:
   override:
-    - echo "TODO"
-  post:
-    - npm run vile
+    - npm -s t && npm run -s vile

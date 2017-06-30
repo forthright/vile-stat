@@ -5,7 +5,6 @@ A [vile](http://github.com/brentlintner/vile) plugin for tracking file statistic
 ## Requirements
 
 - [nodejs](http://nodejs.org)
-- [npm](http://npmjs.org)
 
 ## Installation
 
@@ -15,13 +14,19 @@ A [vile](http://github.com/brentlintner/vile) plugin for tracking file statistic
 
 ```yaml
 stat:
-  allow: ...
-  ignore: ...
+  allow:
+    - foo/bar
+  ignore:
+    - baz
 ```
 
 ## Versioning
 
 This project ascribes to [semantic versioning](http://semver.org).
+
+## Vile Types Generated
+
+* [STAT](https://docs.vile.io/interfaces/_src__types_index_d_.vile.stat.html)
 
 ## Licensing
 
