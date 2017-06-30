@@ -1,5 +1,6 @@
 const fs = require("fs")
 const path = require("path")
+const unixify = require("unixify")
 const _ = require("lodash")
 const detect = require("language-detect")
 const language = require("language-map")
@@ -35,7 +36,7 @@ const into_stat_issue = (filepath, filedata) => {
 
   const issue = vile.issue({
     type: vile.STAT,
-    path: filepath,
+    path: unixify(filepath),
     stat: {
       size: file_stat.size,
       language: lang
