@@ -13,4 +13,4 @@ dependencies:
 
 test:
   override:
-    - npm -s t && npm run -s vile
+    - npm run -s test-cov && npm run -s vile
