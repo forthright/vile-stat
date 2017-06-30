@@ -22,7 +22,9 @@ vile:
     - .gitignore
     - .npmrc
     - .nyc_output
+    - package-lock.json
     - tags
+    - test/mocha.opts
     - tmp
     - tsconfig.json
     - tslint.json
