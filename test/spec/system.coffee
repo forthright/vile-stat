@@ -1,5 +1,6 @@
 path = require "path"
 mimus = require "mimus"
+os = require "os"
 stat = mimus.require "./../../lib", __dirname, []
 chai = require "./../helpers/sinon_chai"
 util = require "./../helpers/util"
@@ -53,8 +54,10 @@ describe "vile-stat", ->
       stat.punish().then ->
         process.nextTick ->
           expect(log.warn).to.have.been.calledWith "File extension
-          'txt' is not supported (file.txt)"
+            'txt' is not supported (file.txt)"
           expect(log.warn).to.have.been.calledWith "File extension 'slim'
-          is not supported (src\\foo.slim)"
+            is not supported (src" +
+            (if os.platform() == "win32" then "\\" else "/") +
+            "foo.slim)"
           done()
       return
