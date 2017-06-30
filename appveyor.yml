@@ -36,5 +36,5 @@ install:
   - npm install
 
 test_script:
-  - npm run compile
-  - npm run test-cov
+  - npm run -s compile
+  - npm run -s test
