@@ -55,6 +55,6 @@ describe "vile-stat", ->
           expect(log.warn).to.have.been.calledWith "File extension
           'txt' is not supported (file.txt)"
           expect(log.warn).to.have.been.calledWith "File extension 'slim'
-          is not supported (src/foo.slim)"
+          is not supported (src\\foo.slim)"
           done()
       return
