@@ -1,6 +1,6 @@
 {
   "name": "vile-stat",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Track various code statistics including lines/loc, comments, language, and size.",
   "main": "lib/index.js",
   "files": [
