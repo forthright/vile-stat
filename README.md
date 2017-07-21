@@ -1,10 +1,11 @@
 # vile-stat [![Circle CI](https://circleci.com/gh/forthright/vile-stat.svg?style=shield&circle-token=4f88501f4048011c21e7c0fd561f82c5651cfd9b)](https://circleci.com/gh/forthright/vile-stat) [![Build status](https://ci.appveyor.com/api/projects/status/sw52hyqmiutcalb6/branch/master?svg=true)](https://ci.appveyor.com/project/brentlintner/vile-stat/branch/master) [![score-badge](https://vile.io/api/v0/projects/vile-stat/badges/score?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-stat) [![security-badge](https://vile.io/api/v0/projects/vile-stat/badges/security?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-stat) [![coverage-badge](https://vile.io/api/v0/projects/vile-stat/badges/coverage?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-stat) [![dependency-badge](https://vile.io/api/v0/projects/vile-stat/badges/dependency?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-stat)
 
-A [vile](https://vile.io) plugin for tracking file statistics.
+A [Vile](https://vile.io) plugin for tracking various code statistics
+including lines/loc, comments, language, and size.
 
 ## Requirements
 
-- [nodejs](http://nodejs.org)
+- [Node.js](http://nodejs.org)
 
 ## Installation
 
@@ -22,7 +23,7 @@ stat:
 
 ## Versioning
 
-This project ascribes to [semantic versioning](http://semver.org).
+This project uses [Semver](http://semver.org).
 
 ## Vile Types Generated
 
@@ -53,8 +54,6 @@ Even if you are uncomfortable with code, an issue or question is welcome.
 
 ### Code Of Conduct
 
-This project ascribes to [contributor-covenant.org](http://contributor-covenant.org).
-
 By participating in this project you agree to our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ### Maintainers
@@ -64,10 +63,10 @@ By participating in this project you agree to our [Code of Conduct](CODE_OF_COND
 ## Architecture
 
 - `bin` houses any shell based scripts
-- `src` is es6+ syntax compiled with [babel](https://babeljs.io)
+- `src` is es6+ syntax compiled with [Babel](https://babeljs.io)
 - `lib` generated js library
 
-## Hacking
+## Developing
 
     cd vile-stat
     npm install
