@@ -19,10 +19,6 @@ vile:
     - vendor
     - "*.yml"
 
-coverage:
-  config:
-    path: coverage/lcov.info
-
 depcheck:
   config:
     ignore_dev_deps: false
