@@ -25,10 +25,11 @@ const into_stat_issue = (filepath, filedata) => {
     const ext = filepath_ext(filepath, lang)
     loc = sloc(filedata, ext.replace(/^\./, ""))
   } catch(error) {
-    if (!error.toString().match(/not supported/i)) {
-      throw error
+    if (/not supported/i.test(_.toString(error))) {
+      const msg = _.get(error, "message", error) + ` (${filepath})`
+      log.warn(msg)
     } else {
-      log.warn(_.get(error, "message", error) + ` (${filepath})`)
+      throw error
     }
   }
 
