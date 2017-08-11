@@ -9,7 +9,18 @@ including lines/loc, comments, language, and size.
 
 ## Installation
 
+This plugin is already packaged with [vile's core lib](https://github.com/forthright/vile),
+but you can also install it manually:
+
     npm i -D vile vile-stat
+
+## Usage
+
+    vile a -p stat
+
+*or*
+
+    vile a -p stat src/foo.js
 
 ## Config
 
